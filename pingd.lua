@@ -135,9 +135,7 @@ function update_graphs()
 		local point_cords = {}
 		for _,point_conf in pairs(points) do
 			point_conf.cx = -(point_conf.cx/x_max) * graph_w + graph_w
-			--point_conf.cx = (point_conf.cx/x_max) * graph_w
 			point_conf.cy = -(point_conf.cy/y_max) * graph_h + graph_h
-			--point_conf.cy = (point_conf.cy/y_max) * graph_h
 			table.insert(point_cords, point_conf.cx..","..point_conf.cy)
 			table.insert(svg[2].elems[3].elems, elem("circle", point_conf))
 		end
@@ -159,11 +157,7 @@ function update_graphs()
 		for i=0, hdivs-1 do
 			local s = i/(hdivs-1)
 			local cx = s*graph_w
-			--local text_e = elem("text", {x=math.max(cx-10,3), y=graph_h+15, fill="#AAA"}, {text(("%ds"):format((1-s)*x_max))})
-			
-			local text_e = elem("text", {style="transform: rotate(90deg);", x=math.max(cx-10,3), y=-(graph_h+15), fill="#AAA"}, {text(("%ds"):format((1-s)*x_max))})
-			
-			--local text_e = elem("text", {style=("transform: translate(%dpx %dpx) rotate(90deg);"):format(math.max(cx-10,3), graph_h+15),x=0, y=0, fill="#AAA"}, {text(("%ds"):format((1-s)*x_max))})
+			local text_e = elem("text", {x=math.max(cx-10,3), y=graph_h+15, fill="#AAA"}, {text(("%ds"):format((1-s)*x_max))})
 			local line = elem("line", {x1=cx,y1=0,x2=cx,y2=graph_h, stroke="grey", ["stroke-width"] = 0.5})
 			table.insert(svg[2].elems, text_e)
 			table.insert(svg[2].elems, line)

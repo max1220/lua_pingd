@@ -12,7 +12,7 @@ return {
 		["Modem"] = "192.168.100.1",
 		["Router"] = "192.168.1.1",
 	},
-	backlog = 1000,
+	backlog = 1000, --maximum ammount of values held in memory
 	jsons = {
 		enabled = true, -- write JSONs? If you disable this the SVG graphs aren't restart proof.
 		persistence = true, -- Load old JSONs on startup?
