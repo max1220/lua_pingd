@@ -191,11 +191,40 @@ function update_html()
 	notice("Updating HTML")
 	local f = io.open(config.html.output_file, "w")
 	
-	-- TODO: prepare stats
+	local stats = {}
+	for _, host in ipairs(hosts) do
+		local sum = 0
+		local min = math.huge
+		local max = 0
+		local replys = 0
+		local drops = 0
+		local errors = 0
+		local last_seq = host.last_seq
+		for _, value in ipairs(host.data) do
+			if value.type == "drop" then
+				drops = drops + value.ammount
+			elseif value.type == "reply" then
+				replys = replys + 1
+				min = math.min(value.rtt, min)
+				max = math.max(value.rtt, max)
+				sum = sum + value.rtt
+			elseif value.type == "error" then
+				errors = errors + 1
+			end
+		end
+		local total = replys + drops + errors
+		local avg = sum / replys
+		local stat_str = ([[min: %.4f, avg: %.4f, max: %.4f
+replys: %d, drops: %d, errors: %d
+total: %d, last seq: %d
+]])
+		stats[host] = stat_str:format(min, avg, max, replys, drops, errors, total, last_seq)
+	end
 	
 	f:write(template({
 		date = os.date(),
 		hosts = hosts,
+		stats = stats,
 		config = config,
 		dynamic = config.html.dynamic,
 		page_title = config.html.page_title

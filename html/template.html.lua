@@ -33,7 +33,7 @@ table.insert(tree[2].elems[2].elems[1].elems, function(args)
 		local graph_path = "../" ..args.config.graphs.output_format:gsub("{{name}}", host.name):gsub("{{host}}", host.host)
 		local div = elem("div", {}, {
 			elem("h2", {}, {text("Statistics for " .. host.name .. " (" .. host.host..")")}),
-			elem("pre", {}, {text(args.hosts.stats or "Statistics unaviable for this host")}),
+			elem("pre", {}, {text(args.stats[host] or "Statistics unaviable for this host")}),
 			elem("img", {src=graph_path, style="border-radius: 6px;", alt="X Axis: time, Y Axis: RTT"}),
 			elem("br")
 		})
