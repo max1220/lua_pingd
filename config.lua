@@ -15,7 +15,7 @@ return {
 	backlog = 1000, --maximum ammount of values held in memory
 	jsons = {
 		enabled = true, -- write JSONs? If you disable this the SVG graphs aren't restart proof.
-		persistence = true, -- Load old JSONs on startup?
+		persistence = false, -- Load old JSONs on startup?
 		update = 5, --update interval in seconds
 		output_format = "jsons/{{name}}.json" -- Where to save the JSONs to. Supported: {{name}}, {{host}}
 	},
