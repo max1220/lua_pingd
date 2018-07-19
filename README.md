@@ -43,4 +43,4 @@ This screenshot is of the rendered page.
 
 
 This is just an example generated SVG graph:
-![example SVG graph](https://raw.githubusercontent.com/max1220/lua_pingd/master/example_svg.svg)
+![example SVG graph](https://raw.githubusercontent.com/max1220/lua_pingd/master/example_svg.svg?sanitize=true)
