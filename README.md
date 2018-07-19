@@ -32,3 +32,7 @@ For local testing you can open `html/index.html` in a browser
 ## configuration
 See the commented default configuration.
 
+
+
+## screenshot
+![rendered HTML page screenshot](https://raw.githubusercontent.com/max1220/lua_pingd/master/screenshot.png)
