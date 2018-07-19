@@ -35,4 +35,12 @@ See the commented default configuration.
 
 
 ## screenshot
+
+This screenshot is of the rendered page.
+
 ![rendered HTML page screenshot](https://raw.githubusercontent.com/max1220/lua_pingd/master/screenshot.png)
+
+
+
+This is just an example generated SVG graph:
+![example SVG graph](https://raw.githubusercontent.com/max1220/lua_pingd/master/example_svg.svg)
